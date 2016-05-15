@@ -1,0 +1,24 @@
+# concatenate_string_array.txt
+
+# pseudo-code (informal)
+
+create an array of strings
+
+concatenate the strings into one long string
+return the string
+
+show the result to the user
+
+# pseudo-code (formal)
+
+START
+
+SET an array to hold several strings
+
+concatenate the string elements of the array into one long string
+
+RETURN the string (the array remains intact)
+
+PRINT the new string for the user
+
+END

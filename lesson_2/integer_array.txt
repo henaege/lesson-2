@@ -1,0 +1,29 @@
+# integer_array.txt
+
+# pseudo-code (informal)
+
+create an array of integers
+
+create a new empty array
+
+iterate through the array and put every other element into the new array. leave the original array intact
+
+show the new array to the user 
+
+# pseudo-code (formal)
+
+START
+
+SET an array full of integers
+
+SET a new empty array
+
+ITERATE through the original array
+WHILE iterating, GET every other value in the array
+
+SET each "gotten" value into the new array
+
+PRINT the new array to the user
+
+END
+
