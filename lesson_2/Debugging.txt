@@ -1,0 +1,18 @@
+# Debugging.txt
+
+Steps to Debugging
+
+  1. Reproduce the error
+  2. Determine the boundaries of the Error
+  3. Trace the Code
+  4. Understand the problem well
+  5. Implement a Fix
+  6. Test the fix
+
+Techniques for Debugging
+
+  1. Line by Line
+  2. Rubber Duck
+  3. Walking Away
+  4. Using Pry
+  5. Using a Debugger
