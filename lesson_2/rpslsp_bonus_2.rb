@@ -2,9 +2,8 @@
 
 # based on rock_paper_scissors.rb
 
-
 VALID_CHOICES = %w(rock paper scissors lizard spock)
-SHORT_VALID_CHOICES = ('r = rock p = paper s = scissors l = lizard k = spock')
+SHORT_VALID_CHOICES = 'r = rock p = paper s = scissors l = lizard k = spock'
 
 # def test_method
 #  prompt('test message')
@@ -33,15 +32,15 @@ end
 
 def short_choice(first)
   if first == 'r'
-    choice = 'rock'
+    'rock'
   elsif first == 'p'
-    choice = 'paper'
+    'paper'
   elsif first == 's'
-    choice = 'scissors'
+    'scissors'
   elsif first == 'l'
-    choice = 'lizard'
+    'lizard'
   elsif first == 'k'
-    choice = 'spock'
+    'spock'
   end
 end
 
@@ -96,7 +95,7 @@ loop do
       break
     end
   end
-  prompt("Do you want to play again? ('Y' to continue, any other letter to quit)")
+  prompt("Want to play again? ('Y' to continue, any other letter to quit)")
   answer = Kernel.gets().chomp()
 
   unless answer.downcase().start_with?('y')
