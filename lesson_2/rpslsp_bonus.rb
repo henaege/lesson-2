@@ -2,7 +2,7 @@
 
 # based on rock_paper_scissors.rb
 
-VALID_CHOICES = %w(rock paper scissors lizard spock)
+VALID_CHOICES = {r: rock, p: paper, s: scissors, l: lizard, k: spock}
 COMBINED_VALID_CHOICES = %w(rock(r) paper(p) scissors(sc) lizard(l) spock(sp))
 
 # def test_method
@@ -40,7 +40,6 @@ def display_results(player, computer)
   end
 end
 
-
 loop do
   player_score = 0
   computer_score = 0
@@ -48,7 +47,7 @@ loop do
   loop do
     choice = ''
     loop do
-      prompt("Choose one: #{COMBINED_VALID_CHOICES.join(', ')}")
+      prompt("Choose one: #{VALID_CHOICES.join(', ')}")
       choice = Kernel.gets().chomp()
 
       if choice.start_with?('r')
@@ -85,23 +84,23 @@ loop do
 
     display_results(choice, computer_choice)
 
-    prompt("Current Score: Player - #{player_score}; Computer - #{computer_score}")
-    
+    prompt("Current Score:")
+    prompt("Player: #{player_score}")
+    prompt("Computer: #{computer_score}")
+
     if player_score == 5
-      puts "You won the Game! Congratulations!"
+      prompt("You won the Game! Congratulations!")
       break
     elsif computer_score == 5
-      puts "The Computer won the Game! You're not very good at this are you?"
+      prompt("The Computer won the Game! You're not very good at this are you?")
       break
     end
-
-    end
-     prompt("Do you want to play again?")
-    answer = Kernel.gets().chomp()
-
-    unless answer.downcase().start_with?('y')
-      break
   end
- 
+  prompt("Do you want to play again?")
+  answer = Kernel.gets().chomp()
+
+  unless answer.downcase().start_with?('y')
+    break
+  end
 end
-  prompt("Thank you for playing! Good Bye.")
+prompt("Thank you for playing! Good Bye.")

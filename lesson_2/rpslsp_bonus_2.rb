@@ -1,9 +1,17 @@
-# rpslsp_bonus.rb
+# rpslsp_bonus_2.rb
 
 # based on rock_paper_scissors.rb
 
 VALID_CHOICES = %w(rock paper scissors lizard spock)
-SHORT_VALID_CHOICES = 'r = rock p = paper s = scissors l = lizard k = spock'
+SHORT_VALID_CHOICES = 'r = rock; p = paper; s = scissors; k = spock; l = lizard'
+
+WINNING_COMBOS = {
+  'rock' => %w(scissors lizard),
+  'paper' => %w(rock spock),
+  'scissors' => %w(paper lizard),
+  'lizard' => %w(spock paper),
+  'spock' => %w(scissors rock)
+}
 
 # def test_method
 #  prompt('test message')
@@ -18,29 +26,16 @@ end
 # test_method
 
 def win?(first, second)
-  (first == 'rock' && second == 'scissors') ||
-    (first == 'rock' && second == 'lizard') ||
-    (first == 'paper' && second == 'rock') ||
-    (first == 'paper' && second == 'spock') ||
-    (first == 'scissors' && second == 'paper') ||
-    (first == 'scissors' && second == 'lizard') ||
-    (first == 'lizard' && second == 'spock') ||
-    (first == 'lizard' && second == 'paper') ||
-    (first == 'spock' && second == 'scissors') ||
-    (first == 'spock' && second == 'rock')
+  WINNING_COMBOS[first].include?(second)
 end
 
-def short_choice(first)
-  if first == 'r'
-    'rock'
-  elsif first == 'p'
-    'paper'
-  elsif first == 's'
-    'scissors'
-  elsif first == 'l'
-    'lizard'
-  elsif first == 'k'
-    'spock'
+def short_choice(letter)
+  case letter
+  when 'r' then 'rock'
+  when 'p' then 'paper'
+  when 's' then 'scissors'
+  when 'l' then 'lizard'
+  when 'k' then 'spock'
   end
 end
 
@@ -57,6 +52,16 @@ end
 loop do
   player_score = 0
   computer_score = 0
+
+  prompt('')
+  prompt("Let's play Rock, Paper, Scissors, Spock, Lizard!")
+  prompt('')
+  prompt("Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard,")
+  prompt("Lizard poisons Spock, Spock smashes Scissors, Scissors")
+  prompt("decapitates Lizard, Lizard eats Paper, Paper disproves Spock,")
+  prompt("Spock vaporizes Rock, and as it always has,")
+  prompt("Rock crushes Scissors.")
+  prompt('')
 
   loop do
     choice = ''
@@ -98,8 +103,6 @@ loop do
   prompt("Want to play again? ('Y' to continue, any other letter to quit)")
   answer = Kernel.gets().chomp()
 
-  unless answer.downcase().start_with?('y')
-    break
-  end
+  break unless answer.downcase().start_with?('y')
 end
 prompt("Thank you for playing! Good Bye.")
